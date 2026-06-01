@@ -1,5 +1,8 @@
 # codex-study-oss-kit
 
+[![CI](https://github.com/I-Fog/codex-study-oss-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/I-Fog/codex-study-oss-kit/actions/workflows/ci.yml)
+[![Agent Readiness](https://github.com/I-Fog/codex-study-oss-kit/actions/workflows/agent-readiness.yml/badge.svg)](https://github.com/I-Fog/codex-study-oss-kit/actions/workflows/agent-readiness.yml)
+
 Toolkit open source para preparar repos educativos en espanol para trabajo con Codex y agentes de codigo.
 
 El objetivo es reducir trabajo repetitivo en repos de practicas, apuntes y ejercicios: crear estructura inicial, revisar si el repo tiene instrucciones mantenibles y generar handoffs claros cuando una sesion larga se queda a medias.
@@ -94,3 +97,5 @@ See [`examples/python-basics`](examples/python-basics) and [`examples/cpp-basics
 ## OpenAI Codex for OSS angle
 
 This project is intentionally aligned with maintainer workflows: issue triage, PR review preparation, reproducible validation commands, release notes and handoffs. API credits would be used to add assisted review and rubric generation while keeping the base toolkit usable offline.
+
+See [`docs/codex-for-oss-application.md`](docs/codex-for-oss-application.md) for the current application notes.
