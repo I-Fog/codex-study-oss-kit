@@ -7,7 +7,7 @@ from pathlib import Path
 from codex_study_oss_kit.audit import audit_project
 from codex_study_oss_kit.cli import main
 from codex_study_oss_kit.handoff import build_handoff_markdown
-from codex_study_oss_kit.scaffold import scaffold_project
+from codex_study_oss_kit.scaffold import build_scaffold, scaffold_project
 
 
 class ScaffoldTest(unittest.TestCase):
@@ -34,6 +34,20 @@ class ScaffoldTest(unittest.TestCase):
             scaffold_project(root, "Practica 2", "python")
 
             self.assertEqual(readme.read_text(encoding="utf-8"), "custom")
+
+    def test_python_scaffold_uses_language_template(self) -> None:
+        files = build_scaffold("Practica Python", "python").files
+
+        self.assertIn("src/ejercicio.py", files)
+        self.assertIn("tests/test_ejercicio.py", files)
+        self.assertIn("python -m unittest discover -s tests", files["README.md"])
+
+    def test_unknown_language_keeps_base_layout(self) -> None:
+        files = build_scaffold("Practica C", "c").files
+
+        self.assertIn("AGENTS.md", files)
+        self.assertIn("README.md", files)
+        self.assertNotIn("src/ejercicio.py", files)
 
 
 class AuditTest(unittest.TestCase):

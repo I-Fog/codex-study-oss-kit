@@ -47,6 +47,24 @@ The package currently has no runtime dependencies.
 
 `handoff` writes a compact Markdown summary that another Codex thread or maintainer can continue from.
 
+## Architecture
+
+The codebase is split so new languages, checks and output formats can be added without changing the CLI surface:
+
+```text
+src/codex_study_oss_kit/
+  cli/        argparse entrypoint and thin command handlers
+  core/       shared models, path helpers and template rendering
+  scaffold/   scaffold service plus language-specific builders
+  audit/      audit service plus small registered checks
+  handoff/    handoff model, Markdown renderer and writer
+  templates/  bundled scaffold templates
+```
+
+To add a scaffold language, create a module in `scaffold/languages/`, add its templates under `templates/scaffold/<language>/`, and register the language in `scaffold/languages/__init__.py`.
+
+To add an audit rule, create a focused check in `audit/checks/` and append it to `DEFAULT_CHECKS`.
+
 ## Example
 
 See [`examples/python-basics`](examples/python-basics) for a checked-in sample educational repo layout.

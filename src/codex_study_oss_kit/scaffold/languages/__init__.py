@@ -1,0 +1,7 @@
+from .python import PYTHON_LANGUAGE
+
+LANGUAGES = {
+    PYTHON_LANGUAGE.name: PYTHON_LANGUAGE,
+}
+
+__all__ = ["LANGUAGES", "PYTHON_LANGUAGE"]
