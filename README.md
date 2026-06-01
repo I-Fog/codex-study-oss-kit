@@ -1,0 +1,56 @@
+# codex-study-oss-kit
+
+Toolkit open source para preparar repos educativos en espanol para trabajo con Codex y agentes de codigo.
+
+El objetivo es reducir trabajo repetitivo en repos de practicas, apuntes y ejercicios: crear estructura inicial, revisar si el repo tiene instrucciones mantenibles y generar handoffs claros cuando una sesion larga se queda a medias.
+
+## Why this exists
+
+Many educational OSS repositories are useful but hard to maintain: missing test commands, unclear exercise layout, no agent instructions, no rubric, and no clean handoff between review sessions. This project turns those conventions into a small CLI that teachers, students and maintainers can reuse.
+
+## MVP commands
+
+```powershell
+python -m codex_study_oss_kit scaffold .\demo-practica --title "Practica 1: Python basico" --language python
+python -m codex_study_oss_kit audit .\demo-practica
+python -m codex_study_oss_kit handoff .\demo-practica --objective "Cerrar tests de la practica 1" --current "Falta revisar casos borde"
+```
+
+## Install for local development
+
+```powershell
+python -m pip install -e .
+python -m codex_study_oss_kit --help
+python -m unittest discover -s tests
+```
+
+The package currently has no runtime dependencies.
+
+## What the toolkit creates
+
+`scaffold` creates a small educational repository:
+
+- `AGENTS.md` with agent-maintenance rules.
+- `README.md` with exercise context and validation commands.
+- `rubrica.md` for review criteria.
+- `src/` and `tests/` folders.
+- `soluciones/` for maintained reference material.
+
+`audit` checks whether a repository has the core maintenance pieces:
+
+- agent instructions
+- README
+- tests
+- rubric or review notes
+- source folder
+- validation command references
+
+`handoff` writes a compact Markdown summary that another Codex thread or maintainer can continue from.
+
+## Example
+
+See [`examples/python-basics`](examples/python-basics) for a checked-in sample educational repo layout.
+
+## OpenAI Codex for OSS angle
+
+This project is intentionally aligned with maintainer workflows: issue triage, PR review preparation, reproducible validation commands, release notes and handoffs. API credits would be used to add assisted review and rubric generation while keeping the base toolkit usable offline.
