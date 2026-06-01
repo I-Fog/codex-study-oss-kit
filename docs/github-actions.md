@@ -15,6 +15,9 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -57,6 +60,8 @@ jobs:
 ```
 
 The comment step is intentionally limited to pull requests whose source branch is in the same repository. Forked pull requests still get the uploaded artifact, but the workflow does not request elevated permissions to run untrusted contributor code.
+
+`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` opts GitHub JavaScript actions into the newer Node runtime before GitHub's Node 20 runner deprecation deadline.
 
 ## JSON output
 

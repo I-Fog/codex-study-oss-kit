@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 - 2026-06-01
+
+### Changed
+
+- Opt GitHub Actions examples and repository workflows into Node 24 for JavaScript actions.
+
 ## 0.1.1 - 2026-06-01
 
 ### Added
