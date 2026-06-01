@@ -13,6 +13,7 @@ Many educational OSS repositories are useful but hard to maintain: missing test 
 ```powershell
 python -m codex_study_oss_kit scaffold .\demo-practica --title "Practica 1: Python basico" --language python
 python -m codex_study_oss_kit audit .\demo-practica
+python -m codex_study_oss_kit audit .\demo-practica --format json --output audit.json
 python -m codex_study_oss_kit handoff .\demo-practica --objective "Cerrar tests de la practica 1" --current "Falta revisar casos borde"
 ```
 
@@ -45,6 +46,13 @@ The package currently has no runtime dependencies.
 - source folder
 - validation command references
 
+It can print Markdown for maintainers or JSON for automation:
+
+```powershell
+codex-study audit . --format markdown --output codex-study-audit.md
+codex-study audit . --format json --output codex-study-audit.json
+```
+
 `handoff` writes a compact Markdown summary that another Codex thread or maintainer can continue from.
 
 ## Architecture
@@ -65,9 +73,23 @@ To add a scaffold language, create a module in `scaffold/languages/`, add its te
 
 To add an audit rule, create a focused check in `audit/checks/` and append it to `DEFAULT_CHECKS`.
 
+## GitHub Actions
+
+Use the sample workflow in [`examples/github-actions/codex-study-audit.yml`](examples/github-actions/codex-study-audit.yml) to run the audit in an educational repository. More detail is in [`docs/github-actions.md`](docs/github-actions.md).
+
+## Roadmap
+
+The public roadmap is tracked in GitHub issues:
+
+- [Add SageMath notebook scaffold](https://github.com/I-Fog/codex-study-oss-kit/issues/1)
+- [Add pull request summary workflow for audit reports](https://github.com/I-Fog/codex-study-oss-kit/issues/2)
+- [Add rubric review mode for educational submissions](https://github.com/I-Fog/codex-study-oss-kit/issues/3)
+- [Add real-world educational repository audit fixtures](https://github.com/I-Fog/codex-study-oss-kit/issues/4)
+- [Improve Spanish educational templates](https://github.com/I-Fog/codex-study-oss-kit/issues/5)
+
 ## Example
 
-See [`examples/python-basics`](examples/python-basics) for a checked-in sample educational repo layout.
+See [`examples/python-basics`](examples/python-basics) and [`examples/cpp-basics`](examples/cpp-basics) for checked-in sample educational repo layouts.
 
 ## OpenAI Codex for OSS angle
 

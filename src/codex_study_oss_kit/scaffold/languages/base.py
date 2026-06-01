@@ -14,3 +14,4 @@ class LanguageScaffold:
     name: str
     validation_command: str
     build_files: LanguageFileBuilder
+    aliases: tuple[str, ...] = ()

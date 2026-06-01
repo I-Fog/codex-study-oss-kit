@@ -39,5 +39,6 @@ where = ["src"]
 [tool.setuptools.package-data]
 codex_study_oss_kit = [
   "templates/scaffold/base/*.tmpl",
-  "templates/scaffold/python/*.tmpl"
+  "templates/scaffold/python/*.tmpl",
+  "templates/scaffold/cpp/*.tmpl"
 ]

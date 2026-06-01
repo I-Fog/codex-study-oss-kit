@@ -23,6 +23,7 @@ This repository is an OSS toolkit for Spanish-speaking educational and study rep
 - Keep reusable primitives in `src/codex_study_oss_kit/core/`.
 - Add scaffold language support under `src/codex_study_oss_kit/scaffold/languages/` and register it in `languages/__init__.py`.
 - Add audit checks as small functions under `src/codex_study_oss_kit/audit/checks/` and register them in `DEFAULT_CHECKS`.
+- Add audit output formats under `src/codex_study_oss_kit/audit/formatters/` and register them in `FORMATTERS`.
 - Keep text templates under `src/codex_study_oss_kit/templates/`; do not put large generated files back into Python strings.
 
 ## Generated Files

@@ -10,6 +10,13 @@ class AuditCheck:
     ok: bool
     detail: str
 
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "name": self.name,
+            "ok": self.ok,
+            "detail": self.detail,
+        }
+
 
 @dataclass(frozen=True)
 class AuditReport:
@@ -27,6 +34,15 @@ class AuditReport:
     @property
     def ok(self) -> bool:
         return self.score == self.total
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "root": str(self.root),
+            "ok": self.ok,
+            "score": self.score,
+            "total": self.total,
+            "checks": [check.to_dict() for check in self.checks],
+        }
 
     def to_markdown(self) -> str:
         lines = [

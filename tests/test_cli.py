@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
 
 from codex_study_oss_kit.audit import audit_project
@@ -49,6 +52,13 @@ class ScaffoldTest(unittest.TestCase):
         self.assertIn("README.md", files)
         self.assertNotIn("src/ejercicio.py", files)
 
+    def test_cpp_scaffold_uses_language_template(self) -> None:
+        files = build_scaffold("Practica C++", "cpp").files
+
+        self.assertIn("src/sumar_pares.hpp", files)
+        self.assertIn("tests/test_sumar_pares.cpp", files)
+        self.assertIn("g++ -std=c++17", files["README.md"])
+
 
 class AuditTest(unittest.TestCase):
     def test_audit_passes_on_scaffold(self) -> None:
@@ -60,6 +70,7 @@ class AuditTest(unittest.TestCase):
 
             self.assertTrue(report.ok)
             self.assertEqual(report.score, report.total)
+            self.assertTrue(report.to_dict()["ok"])
 
     def test_audit_fails_on_empty_folder(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -94,6 +105,30 @@ class CliTest(unittest.TestCase):
 
             self.assertEqual(main(["scaffold", str(root), "--title", "Practica CLI"]), 0)
             self.assertEqual(main(["audit", str(root)]), 0)
+
+    def test_cli_audit_writes_json_report(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "practica"
+            output = Path(directory) / "audit.json"
+            scaffold_project(root, "Practica CLI", "python")
+
+            self.assertEqual(main(["audit", str(root), "--format", "json", "--output", str(output)]), 0)
+
+            data = json.loads(output.read_text(encoding="utf-8"))
+            self.assertTrue(data["ok"])
+            self.assertEqual(data["score"], data["total"])
+
+    def test_cli_audit_prints_json_report(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "practica"
+            scaffold_project(root, "Practica CLI", "python")
+            stdout = StringIO()
+
+            with redirect_stdout(stdout):
+                exit_code = main(["audit", str(root), "--format", "json"])
+
+            self.assertEqual(exit_code, 0)
+            self.assertTrue(json.loads(stdout.getvalue())["ok"])
 
 
 if __name__ == "__main__":
