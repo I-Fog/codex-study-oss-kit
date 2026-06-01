@@ -21,12 +21,12 @@ Many educational repositories are useful but hard to maintain. They often lack:
 ## Current evidence
 
 - Public repository with MIT license.
-- Initial `v0.1.0` release.
+- Initial `v0.1.0` release and `v0.1.1` maintainer-automation patch.
 - CI workflow for tests.
-- Agent-readiness workflow that audits checked-in examples.
+- Agent-readiness workflow that audits checked-in examples and comments summaries on same-repository pull requests.
 - Python and C++ educational examples.
 - JSON and Markdown audit output for CI and automation.
-- Public roadmap issues for SageMath, PR summaries, rubric review, fixture coverage and Spanish template improvements.
+- Public roadmap issues for SageMath, rubric review, fixture coverage and Spanish template improvements.
 
 ## Why this fits Codex for Open Source
 
@@ -34,6 +34,7 @@ The project is explicitly about maintainer workflows:
 
 - preparing repositories for Codex sessions through `AGENTS.md`
 - auditing missing maintenance structure before PRs are reviewed
+- commenting audit summaries directly on pull requests
 - generating handoffs for long-running Codex work
 - producing CI artifacts maintainers can inspect
 - creating a foundation for future PR review and rubric automation
@@ -53,10 +54,10 @@ The base toolkit remains usable offline and without API credentials.
 ## Near-term roadmap
 
 1. Add SageMath scaffold support.
-2. Add a pull-request comment workflow for audit summaries.
-3. Add rubric review mode with deterministic output first.
-4. Add fixtures for common educational repository states.
-5. Improve Spanish template variants for teacher-owned and student-owned repositories.
+2. Add rubric review mode with deterministic output first.
+3. Add fixtures for common educational repository states.
+4. Improve Spanish template variants for teacher-owned and student-owned repositories.
+5. Use the toolkit in an external educational repository through a public PR.
 
 ## Honest positioning
 

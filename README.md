@@ -85,10 +85,13 @@ Use the sample workflow in [`examples/github-actions/codex-study-audit.yml`](exa
 The public roadmap is tracked in GitHub issues:
 
 - [Add SageMath notebook scaffold](https://github.com/I-Fog/codex-study-oss-kit/issues/1)
-- [Add pull request summary workflow for audit reports](https://github.com/I-Fog/codex-study-oss-kit/issues/2)
 - [Add rubric review mode for educational submissions](https://github.com/I-Fog/codex-study-oss-kit/issues/3)
 - [Add real-world educational repository audit fixtures](https://github.com/I-Fog/codex-study-oss-kit/issues/4)
 - [Improve Spanish educational templates](https://github.com/I-Fog/codex-study-oss-kit/issues/5)
+
+Completed maintainer workflow:
+
+- [Pull request summary workflow for audit reports](https://github.com/I-Fog/codex-study-oss-kit/issues/2)
 
 ## Example
 
