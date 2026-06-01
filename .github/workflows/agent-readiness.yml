@@ -8,15 +8,12 @@ permissions:
   contents: read
   pull-requests: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-
 jobs:
   audit-examples:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install package
@@ -28,7 +25,7 @@ jobs:
           codex-study audit examples/cpp-basics --format markdown --output reports/cpp-basics.md
       - name: Comment audit summary on pull request
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require("fs");
@@ -61,7 +58,7 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
       - name: Upload audit reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: agent-readiness-reports
           path: reports/*.md

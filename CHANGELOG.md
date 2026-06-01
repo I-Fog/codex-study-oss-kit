@@ -1,10 +1,16 @@
 # Changelog
 
+## 0.1.3 - 2026-06-01
+
+### Changed
+
+- Use Node 24-native major versions for official GitHub Actions in workflows and examples.
+
 ## 0.1.2 - 2026-06-01
 
 ### Changed
 
-- Opt GitHub Actions examples and repository workflows into Node 24 for JavaScript actions.
+- Update GitHub Actions examples and repository workflows to official action majors that run on Node 24.
 
 ## 0.1.1 - 2026-06-01
 
