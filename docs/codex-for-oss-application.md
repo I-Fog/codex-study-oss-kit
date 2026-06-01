@@ -21,12 +21,21 @@ Many educational repositories are useful but hard to maintain. They often lack:
 ## Current evidence
 
 - Public repository with MIT license.
-- Initial `v0.1.0` release and `v0.1.1` maintainer-automation patch.
+- Initial `v0.1.0` release and follow-up `v0.1.3` maintainer-automation release.
 - CI workflow for tests.
 - Agent-readiness workflow that audits checked-in examples and comments summaries on same-repository pull requests.
 - Python and C++ educational examples.
 - JSON and Markdown audit output for CI and automation.
 - Public roadmap issues for SageMath, rubric review, fixture coverage and Spanish template improvements.
+
+## Adoption evidence
+
+- Demo educational repository: <https://github.com/I-Fog/practicas-agent-ready>
+- Adoption pull request: <https://github.com/I-Fog/practicas-agent-ready/pull/1>
+- Automatic audit comment on the PR: <https://github.com/I-Fog/practicas-agent-ready/pull/1#issuecomment-4594171104>
+- Successful PR workflow run: <https://github.com/I-Fog/practicas-agent-ready/actions/runs/26765873990>
+- Successful main-branch workflow run after merge: <https://github.com/I-Fog/practicas-agent-ready/actions/runs/26765908641>
+- Latest release used by the demo repo: <https://github.com/I-Fog/codex-study-oss-kit/releases/tag/v0.1.3>
 
 ## Why this fits Codex for Open Source
 
@@ -57,7 +66,7 @@ The base toolkit remains usable offline and without API credentials.
 2. Add rubric review mode with deterministic output first.
 3. Add fixtures for common educational repository states.
 4. Improve Spanish template variants for teacher-owned and student-owned repositories.
-5. Use the toolkit in an external educational repository through a public PR.
+5. Use the toolkit in another external educational repository or real class-practice repo.
 
 ## Honest positioning
 

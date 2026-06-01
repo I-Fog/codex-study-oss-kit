@@ -101,4 +101,4 @@ See [`examples/python-basics`](examples/python-basics) and [`examples/cpp-basics
 
 This project is intentionally aligned with maintainer workflows: issue triage, PR review preparation, reproducible validation commands, release notes and handoffs. API credits would be used to add assisted review and rubric generation while keeping the base toolkit usable offline.
 
-See [`docs/codex-for-oss-application.md`](docs/codex-for-oss-application.md) for the current application notes.
+See [`docs/codex-for-oss-application.md`](docs/codex-for-oss-application.md) for the current application notes, including the public adoption PR in [`I-Fog/practicas-agent-ready`](https://github.com/I-Fog/practicas-agent-ready/pull/1).
